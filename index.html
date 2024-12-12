@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product details</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="h-full w-full container mx-auto p-5 roboto-regular">
+    <main class="lg:grid grid-cols-12 gap-4 space-y-20 lg:space-y-0 relative">
+      <section class="col-span-6">
+        <img
+          id="thumbnail"
+          src=""
+          class="w-full h-full rounded"
+          alt="thumbnail"
+        />
+      </section>
+      <!-- details -->
+      <section class="col-span-6 w-full h-full flex flex-col justify-center">
+        <h1 class="font-bold text-4xl text-[#364A63]">
+          Classy Modern Smart watch
+        </h1>
+        <div class="flex items-center gap-1.5 mt-5">
+          <i class="fa-solid fa-star text-[#FFD200]"></i>
+          <i class="fa-solid fa-star text-[#FFD200]"></i>
+          <i class="fa-solid fa-star text-[#FFD200]"></i>
+          <i class="fa-regular fa-star-half-stroke text-[#FFD200]"></i>
+          <i class="fa-regular fa-star text-[#FFD200]"></i>
+          <span class="text-[#8091A7]">(2 Reviews)</span>
+        </div>
+
+        <div class="mt-8 space-y-5">
+          <div class="flex items-center gap-2">
+            <p id="price" class="text-[#8091A7] text-xl line-through"></p>
+            <p id="offer-price" class="text-[#6576FF] font-bold text-2xl"></p>
+          </div>
+
+          <p class="text-[#8091A7]">
+            I must explain to you how all this mistaken idea of denoun cing ple
+            praising pain was born and I will give you a complete account of the
+            system, and expound the actual teaching.
+          </p>
+
+          <div class="flex items-center gap-5">
+            <div>
+              <p class="text-[#8091A7] text-sm">Type</p>
+              <p class="text-[#364A63] font-bold text-base">Watch</p>
+            </div>
+            <div>
+              <p class="text-[#8091A7] text-sm">Model Number</p>
+              <p class="text-[#364A63] font-bold text-base">Forerunner 290XT</p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <p class="text-lg text-[#364A63] font-bold">Band Color</p>
+            <div class="flex items-center gap-4 color-buttons"></div>
+          </div>
+
+          <div class="space-y-3">
+            <p class="text-lg text-[#364A63] font-bold">Wrist Size</p>
+            <div class="flex items-center gap-4 size-buttons"></div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <!-- counter -->
+            <div class="inline-block">
+              <div
+                class="flex items-center gap-x-4 border border-[#8091A7] rounded m-0 p-0"
+              >
+                <button
+                  id="decrement"
+                  type="button"
+                  class="m-0 h-8 w-8 outline-none flex justify-center items-center rounded-l text-[#8091A7] text-lg border-r border-[#8091A7]"
+                >
+                  -
+                </button>
+                <p id="count" class="text-[#364A63] text-lg">1</p>
+                <button
+                  id="increment"
+                  type="button"
+                  class="m-0 h-8 w-8 outline-none flex justify-center items-center rounded-r text-[#8091A7] text-lg border-l border-[#8091A7]"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <!-- add to cart button -->
+            <button
+              id="add-to-cart-btn"
+              type="button"
+              class="outline-none flex justify-center items-center rounded bg-[#6576FF] text-white rounded py-1.5 px-2.5 text-sm"
+            >
+              Add to Cart
+            </button>
+
+            <!-- favorite btn -->
+            <i
+              class="fa-regular fa-heart text-[#6576FF] cursor-pointer rounded-full text-xl"
+            ></i>
+          </div>
+        </div>
+      </section>
+      <div id="checkout-btn-container"></div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
