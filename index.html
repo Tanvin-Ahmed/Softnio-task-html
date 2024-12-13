@@ -27,7 +27,7 @@
         </section>
         <!-- details -->
         <section class="col-span-6 w-full h-full flex flex-col justify-center">
-          <h1 class="font-bold text-4xl text-[#364A63]">
+          <h1 class="font-bold text-2xl sm:text-4xl text-[#364A63]">
             Classy Modern Smart watch
           </h1>
           <div class="flex items-center gap-1.5 mt-5">
@@ -41,8 +41,14 @@
 
           <div class="mt-8 space-y-5">
             <div class="flex items-center gap-2">
-              <p id="price" class="text-[#8091A7] text-xl line-through"></p>
-              <p id="offer-price" class="text-[#6576FF] font-bold text-2xl"></p>
+              <p
+                id="price"
+                class="text-[#8091A7] text-lg sm:text-xl line-through"
+              ></p>
+              <p
+                id="offer-price"
+                class="text-[#6576FF] font-bold text-xl sm:text-2xl"
+              ></p>
             </div>
 
             <p class="text-[#8091A7]">
@@ -71,10 +77,10 @@
 
             <div class="space-y-3">
               <p class="text-lg text-[#364A63] font-bold">Wrist Size</p>
-              <div class="flex items-center gap-4 size-buttons"></div>
+              <div class="flex items-center gap-4 size-buttons flex-wrap"></div>
             </div>
 
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-4 flex-wrap">
               <!-- counter -->
               <div class="inline-block">
                 <div
@@ -102,7 +108,7 @@
               <button
                 id="add-to-cart-btn"
                 type="button"
-                class="outline-none flex justify-center items-center rounded bg-[#6576FF] text-white py-1.5 px-2.5 text-sm"
+                class="outline-none flex justify-center items-center rounded bg-[#6576FF] text-white py-1.5 px-2.5 text-[13px]"
               >
                 Add to Cart
               </button>

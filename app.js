@@ -271,13 +271,13 @@ function openCartModal() {
 
     // Modal content
     modal.innerHTML = `
-      <div class="bg-white text-[#364A63] w-4/5 max-w-lg rounded-lg p-6 relative">
+      <div class="bg-white text-[#364A63] w-4/5 max-w-2xl rounded-lg p-6 relative transform transition-transform duration-300 max-h-[80vh] overflow-y-auto">
         <!-- Modal Title -->
         <h2 class="text-xl font-semibold mb-4">Your Cart</h2>
         
         <!-- Cart Table -->
         <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse">
+          <table class="w-full text-left border-collapse min-w-96 overflow-auto">
             <thead>
               <tr>
                 <th class="border-b border-gray-300 p-2 font-normal text-[#8091A7]">Item</th>
@@ -327,13 +327,13 @@ function openCartModal() {
         <div class="flex justify-end gap-4 mt-6">
           <button
             id="continue-shopping"
-            class="py-2 px-4 bg-white border text-[#8091A7] rounded shadow-md hover:bg-gray-100 transition duration-300"
+            class="py-1 px-2 text-[13px] sm:py-2 sm:px-4 bg-white border text-[#8091A7] rounded shadow-md hover:bg-gray-100 transition duration-300"
           >
             Continue Shopping
           </button>
           <button
             id="checkout-final"
-            class="py-2 px-4 bg-[#6576FF] text-white rounded shadow-md hover:bg-[#6576FA] transition duration-300"
+            class="py-1 px-2 text-[13px] sm:py-2 sm:px-4 bg-[#6576FF] text-white rounded shadow-md hover:bg-[#6576FA] transition duration-300"
           >
             Checkout
           </button>
