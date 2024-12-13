@@ -271,20 +271,20 @@ function openCartModal() {
 
     // Modal content
     modal.innerHTML = `
-      <div class="bg-white w-4/5 max-w-lg rounded-lg p-6 relative">
+      <div class="bg-white text-[#364A63] w-4/5 max-w-lg rounded-lg p-6 relative">
         <!-- Modal Title -->
-        <h2 class="text-xl font-semibold text-[#364A63] mb-4">Your Cart</h2>
+        <h2 class="text-xl font-semibold mb-4">Your Cart</h2>
         
         <!-- Cart Table -->
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse">
             <thead>
               <tr>
-                <th class="border-b border-gray-300 p-2 text-[#8091A7]">Item</th>
-                <th class="border-b border-gray-300 p-2 text-[#8091A7]">Color</th>
-                <th class="border-b border-gray-300 p-2 text-[#8091A7]">Size</th>
-                <th class="border-b border-gray-300 p-2 text-[#8091A7]">Qnt</th>
-                <th class="border-b border-gray-300 p-2 text-[#8091A7]">Price</th>
+                <th class="border-b border-gray-300 p-2 font-normal text-[#8091A7]">Item</th>
+                <th class="border-b border-gray-300 p-2 font-normal text-[#8091A7]">Color</th>
+                <th class="border-b border-gray-300 p-2 font-normal text-[#8091A7]">Size</th>
+                <th class="border-b border-gray-300 p-2 font-normal text-[#8091A7]">Qnt</th>
+                <th class="border-b border-gray-300 p-2 font-normal text-[#8091A7]">Price</th>
               </tr>
             </thead>
             <tbody id="cart-items">
@@ -297,13 +297,28 @@ function openCartModal() {
                     <span>${item.title}</span>
                   </td>
                   <td class="border-b border-gray-200 p-2 capitalize">${item.color}</td>
-                  <td class="border-b border-gray-200 p-2 uppercase">${item.size}</td>
-                  <td class="border-b border-gray-200 p-2 uppercase">${item.count}</td>
-                  <td class="border-b border-gray-200 p-2">$${item.price}</td>
+                  <td class="border-b border-gray-200 p-2 uppercase font-bold">${item.size}</td>
+                  <td class="border-b border-gray-200 p-2 uppercase font-bold">${item.count}</td>
+                  <td class="border-b border-gray-200 p-2 font-bold">$${item.price}.00</td>
                 </tr>
               `
                 )
                 .join("")}
+                <tr>
+                  <td class="p-2 font-bold">
+                    Total
+                  </td>
+                  <td class="p-2"></td>
+                  <td class="p-2"></td>
+                  <td class="p-2 font-bold">${cartData.reduce(
+                    (prev, curr) => prev + curr.count,
+                    0
+                  )}</td>
+                  <td class="border-b border-gray-200 p-2 font-bold">$${cartData.reduce(
+                    (prev, curr) => prev + curr.price,
+                    0
+                  )}.00</td>
+                </tr>
             </tbody>
           </table>
         </div>
