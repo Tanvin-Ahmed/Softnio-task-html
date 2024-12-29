@@ -39,11 +39,13 @@
 /* Hide the number input's default spin buttons */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+  -webkit-appearance: none; /* Hide spin buttons in WebKit browsers */
+  appearance: none; /* Standardized property for compatibility */
   margin: 0;
 }
 
+/* Styling the number input */
 input[type="number"] {
+  appearance: none;
   text-align: center;
-  -moz-appearance: textfield; /* For Firefox */
 }
