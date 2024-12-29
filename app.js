@@ -1,3 +1,4 @@
+const imageCache = {};
 let cartData = [];
 const cartItem = {
   count: 1,
@@ -54,9 +55,11 @@ colorButtons.forEach((button) => {
     innerSpan.className = `w-4 h-4 rounded-full bg-[${color}]`;
     selectedLabel.appendChild(innerSpan);
 
-    // Update the thumbnail image
+    // Update the thumbnail image source from cache
     const imagePath = `./assets/${color.replace("#", "").toLowerCase()}.png`;
-    thumbnail.src = imagePath;
+    if (imageCache[imagePath]) {
+      thumbnail.src = imageCache[imagePath].src;
+    }
 
     // Update the cartItem object
     const colorKey = Object.keys(
@@ -70,6 +73,17 @@ colorButtons.forEach((button) => {
 // Automatically select the first color on page load
 document.addEventListener("DOMContentLoaded", () => {
   if (colorButtons.length > 0) {
+    // Preload all possible images for each color
+    colorButtons.forEach((button) => {
+      const color = button.value;
+      const imagePath = `./assets/${color.replace("#", "").toLowerCase()}.png`;
+
+      // Preload the image and store it in the cache
+      const img = new Image();
+      img.src = imagePath;
+      imageCache[imagePath] = img;
+    });
+
     colorButtons[0].checked = true;
     colorButtons[0].dispatchEvent(new Event("change"));
   }
