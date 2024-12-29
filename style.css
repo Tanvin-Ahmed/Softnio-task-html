@@ -35,3 +35,15 @@
   font-weight: 900;
   font-style: normal;
 }
+
+/* Hide the number input's default spin buttons */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  text-align: center;
+  -moz-appearance: textfield; /* For Firefox */
+}

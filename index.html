@@ -72,13 +72,13 @@
               id="price"
               class="text-[#8091A7] text-lg sm:text-xl leading-[30px] line-through font-normal"
             >
-              $299.99
+              $99.00
             </span>
             <span
               id="offer-price"
               class="text-[#6576FF] font-bold text-xl sm:text-2xl leading-[30px]"
             >
-              $199.99
+              $69.00
             </span>
           </div>
 
@@ -112,16 +112,16 @@
           </dl>
 
           <!-- Band Color -->
-          <div class="space-y-[10px] pt-5">
+          <div class="space-y-[10px] pt-5 w-full">
             <h3 class="text-lg leading-5 text-[#364A63] font-bold">
               Band Color
             </h3>
             <ul
-              class="flex items-center gap-[19px] color-buttons"
+              class="flex items-center gap-3 w-full color-buttons"
               role="radiogroup"
               aria-label="Band Colors"
             >
-              <li>
+              <li class="min-w-6">
                 <input
                   type="radio"
                   id="color-purple"
@@ -135,7 +135,7 @@
                   class="w-4 h-4 rounded-full bg-[#816BFF] border-none outline-none flex justify-center items-center cursor-pointer"
                 ></label>
               </li>
-              <li>
+              <li class="min-w-6">
                 <input
                   type="radio"
                   id="color-cyan"
@@ -149,7 +149,7 @@
                   class="w-4 h-4 rounded-full bg-[#1FCEC9] border-none outline-none flex justify-center items-center cursor-pointer"
                 ></label>
               </li>
-              <li>
+              <li class="min-w-6">
                 <input
                   type="radio"
                   id="color-blue"
@@ -163,7 +163,7 @@
                   class="w-4 h-4 rounded-full bg-[#4B97D3] border-none outline-none flex justify-center items-center cursor-pointer"
                 ></label>
               </li>
-              <li>
+              <li class="min-w-6">
                 <input
                   type="radio"
                   id="color-black"
@@ -183,10 +183,82 @@
           <!-- Wrist Size -->
           <div class="space-y-[10px] pt-5">
             <h3 class="text-lg text-[#364A63] font-bold">Wrist Size</h3>
-            <div
+            <ul
               class="flex items-center gap-3 size-buttons flex-wrap"
               aria-label="Wrist Sizes"
-            ></div>
+            >
+              <!-- Small Size Option -->
+              <li>
+                <input
+                  type="radio"
+                  id="size-s"
+                  name="size"
+                  value="s"
+                  class="hidden"
+                />
+                <label
+                  for="size-s"
+                  class="rounded outline-none uppercase flex justify-center items-center gap-2 border border-[#8091A7] py-1 px-3 cursor-pointer"
+                >
+                  <span class="text-[#3B4747] text-lg font-bold">S</span>
+                  <span class="text-[#8091A7] text-[13px]">$69</span>
+                </label>
+              </li>
+
+              <!-- Medium Size Option -->
+              <li>
+                <input
+                  type="radio"
+                  id="size-m"
+                  name="size"
+                  value="m"
+                  class="hidden"
+                />
+                <label
+                  for="size-m"
+                  class="rounded outline-none uppercase flex justify-center items-center gap-2 border border-[#8091A7] py-1 px-3 cursor-pointer"
+                >
+                  <span class="text-[#3B4747] text-lg font-bold">M</span>
+                  <span class="text-[#8091A7] text-[13px]">$79</span>
+                </label>
+              </li>
+
+              <!-- Large Size Option -->
+              <li>
+                <input
+                  type="radio"
+                  id="size-l"
+                  name="size"
+                  value="l"
+                  class="hidden"
+                />
+                <label
+                  for="size-l"
+                  class="rounded outline-none uppercase flex justify-center items-center gap-2 border border-[#8091A7] py-1 px-3 cursor-pointer"
+                >
+                  <span class="text-[#3B4747] text-lg font-bold">L</span>
+                  <span class="text-[#8091A7] text-[13px]">$89</span>
+                </label>
+              </li>
+
+              <!-- Extra Large Size Option -->
+              <li>
+                <input
+                  type="radio"
+                  id="size-xl"
+                  name="size"
+                  value="xl"
+                  class="hidden"
+                />
+                <label
+                  for="size-xl"
+                  class="rounded outline-none uppercase flex justify-center items-center gap-2 border border-[#8091A7] py-1 px-3 cursor-pointer"
+                >
+                  <span class="text-[#3B4747] text-lg font-bold">XL</span>
+                  <span class="text-[#8091A7] text-[13px]">$99</span>
+                </label>
+              </li>
+            </ul>
           </div>
 
           <!-- Purchase Options -->

@@ -22,11 +22,7 @@ const data = {
   ],
 };
 
-const actualPriceText = document.getElementById("price");
-const offerPriceText = document.getElementById("offer-price");
-
 // ******** color choose option buttons ****************
-
 const colorButtons = document.querySelectorAll(".color-buttons input");
 const thumbnail = document.getElementById("thumbnail");
 
@@ -35,28 +31,28 @@ colorButtons.forEach((button) => {
   button.addEventListener("change", () => {
     // Remove active styles and inner circles from all buttons
     colorButtons.forEach((b) => {
-      const span = b.nextElementSibling;
+      const label = b.nextElementSibling;
       const color = b.value;
 
       // Reset the span styles
-      span.className = `w-4 h-4 rounded-full bg-[${color}] cursor-pointer flex justify-center items-center`;
+      label.className = `w-4 h-4 rounded-full bg-[${color}] cursor-pointer flex justify-center items-center`;
 
       // Remove any inner circle if it exists
-      const innerDiv = span.querySelector("div");
-      if (innerDiv) innerDiv.remove();
+      const innerSpan = label.querySelector("span");
+      if (innerSpan) innerSpan.remove();
     });
 
     // Apply active style to the selected button
-    const selectedSpan = button.nextElementSibling;
+    const selectedLabel = button.nextElementSibling;
     const color = button.value;
 
     // Add active border style
-    selectedSpan.className = `w-6 h-6 rounded-full border-2 border-[${color}] flex justify-center items-center`;
+    selectedLabel.className = `w-6 h-6 rounded-full border-2 border-[${color}] flex justify-center items-center`;
 
     // Add inner circle
-    const innerDiv = document.createElement("div");
-    innerDiv.className = `w-4 h-4 rounded-full bg-[${color}]`;
-    selectedSpan.appendChild(innerDiv);
+    const innerSpan = document.createElement("span");
+    innerSpan.className = `w-4 h-4 rounded-full bg-[${color}]`;
+    selectedLabel.appendChild(innerSpan);
 
     // Update the thumbnail image
     const imagePath = `./assets/${color.replace("#", "").toLowerCase()}.png`;
@@ -80,75 +76,55 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ******** work with size buttons ********
-const sizeButtonsContainer = document.querySelector(".size-buttons");
+const sizeButtons = document.querySelectorAll(
+  ".size-buttons input[type='radio']"
+);
 
-let activeSizeButton = null;
+// Function to handle size selection
+function handleSizeSelection(event) {
+  const selectedSize = event.target.value;
+  const sizeIndex = data.sizes.indexOf(selectedSize);
 
-// Function to reset button style
-function resetSizeButtonStyle(button) {
-  button.className = `rounded outline-none uppercase flex justify-center items-center gap-2 border border-[#8091A7] py-1 px-3`;
-  button.querySelector("span").className = "text-[#3B4747] text-lg font-bold";
-  button.querySelectorAll("span")[1].className = "text-[#8091A7] text-[13px]";
-}
+  if (sizeIndex !== -1) {
+    const actualPriceText = document.getElementById("price");
+    const offerPriceText = document.getElementById("offer-price");
 
-// Function to handle size button click
-function handleSizeButtonClick(button, sizeIndex) {
-  if (activeSizeButton) {
-    resetSizeButtonStyle(activeSizeButton); // Reset the previously active button
+    // Update cart item with selected size and price
+    cartItem.size = selectedSize;
+    cartItem.price = data.prices[sizeIndex].offerPrice;
+
+    // display in price section
+    actualPriceText.textContent = `$${data.prices[sizeIndex].actualPrice}.00`;
+    offerPriceText.textContent = `$${data.prices[sizeIndex].offerPrice}.00`;
+
+    // Update styles for selected size
+    sizeButtons.forEach((button) => {
+      const label = button.parentElement;
+      if (button === event.target) {
+        label.classList.add("border-[#6576FF]");
+        label.classList.remove("border-[#8091A7]");
+        label.querySelector("span").classList.add("text-[#6576FF]");
+        label.querySelector("span").classList.remove("text-[#3B4747]");
+      } else {
+        label.classList.add("border-[#8091A7]");
+        label.classList.remove("border-[#6576FF]");
+        label.querySelector("span").classList.add("text-[#3B4747]");
+        label.querySelector("span").classList.remove("text-[#6576FF]");
+      }
+    });
   }
-
-  // Apply the active style
-  button.className = `rounded outline-none uppercase flex justify-center items-center gap-2 border border-[#6576FF] py-1 px-3`;
-  button.querySelector("span").className = "text-[#6576FF] text-lg font-bold";
-  button.querySelectorAll("span")[1].className = "text-[#8091A7] text-[13px]";
-
-  // Add item to the cart (you can expand this logic based on your cart implementation)
-  cartItem["size"] = data.sizes[sizeIndex];
-  cartItem["price"] = data.prices[sizeIndex].offerPrice;
-
-  // change price text
-  actualPriceText.innerText = `$${data.prices[sizeIndex].actualPrice}.00`;
-  offerPriceText.innerText = `$${data.prices[sizeIndex].offerPrice}.00`;
-
-  activeSizeButton = button;
 }
 
-// Dynamically create size buttons based on the dataset
-function createSizeButtons() {
-  data.sizes.forEach((size, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `rounded outline-none uppercase flex justify-center items-center gap-2 border border-[#8091A7] py-1 px-3`;
+// Attach event listeners to each size button
+sizeButtons.forEach((button) => {
+  button.addEventListener("change", handleSizeSelection);
+});
 
-    const sizeText = document.createElement("span");
-    sizeText.className = "text-[#3B4747] text-lg font-bold";
-    sizeText.textContent = size;
-
-    const priceText = document.createElement("span");
-    priceText.className = "text-[#8091A7] text-[13px]";
-    priceText.textContent = `$${data.prices[index].offerPrice}`;
-
-    button.appendChild(sizeText);
-    button.appendChild(priceText);
-
-    // Attach click event listener
-    button.addEventListener("click", () =>
-      handleSizeButtonClick(button, index)
-    );
-
-    // Append button to the container
-    sizeButtonsContainer.appendChild(button);
-  });
-}
-
-// Initialize size buttons dynamically
-createSizeButtons();
-
-// Make the first size button active by default
+// Automatically select the first size on page load
 document.addEventListener("DOMContentLoaded", () => {
-  const firstButton = sizeButtonsContainer.querySelector("button");
-  if (firstButton) {
-    handleSizeButtonClick(firstButton, 0);
+  if (sizeButtons.length > 0) {
+    sizeButtons[0].checked = true;
+    sizeButtons[0].dispatchEvent(new Event("change"));
   }
 });
 
