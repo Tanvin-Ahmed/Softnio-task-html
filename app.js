@@ -27,69 +27,55 @@ const offerPriceText = document.getElementById("offer-price");
 
 // ******** color choose option buttons ****************
 
-const colorButtonsContainer = document.querySelector(".color-buttons");
-let activeButton = null;
+const colorButtons = document.querySelectorAll(".color-buttons input");
+const thumbnail = document.getElementById("thumbnail");
 
-// Function to reset a button to its default style
-function resetButtonStyle(button) {
-  const originalColor = button.dataset.color; // Get color from data attribute
-  button.className = `w-4 h-4 rounded-full bg-[${originalColor}] border-none outline-none flex justify-center items-center`;
-  button.innerHTML = ""; // Clear any inner content
-}
+// Add event listeners to all color inputs
+colorButtons.forEach((button) => {
+  button.addEventListener("change", () => {
+    // Remove active styles and inner circles from all buttons
+    colorButtons.forEach((b) => {
+      const span = b.nextElementSibling;
+      const color = b.value;
 
-// Function to handle button click
-function handleClick(button) {
-  if (activeButton) {
-    resetButtonStyle(activeButton);
-  }
+      // Reset the span styles
+      span.className = `w-4 h-4 rounded-full bg-[${color}] cursor-pointer flex justify-center items-center`;
 
-  const color = button.dataset.color;
+      // Remove any inner circle if it exists
+      const innerDiv = span.querySelector("div");
+      if (innerDiv) innerDiv.remove();
+    });
 
-  // Apply the active style
-  button.className = `w-6 h-6 rounded-full bg-transparent border-2 border-[${color}] outline-none flex justify-center items-center`;
-  const innerDiv = document.createElement("div");
-  innerDiv.className = `bg-[${color}] w-4 h-4 rounded-full`;
-  button.appendChild(innerDiv);
+    // Apply active style to the selected button
+    const selectedSpan = button.nextElementSibling;
+    const color = button.value;
 
-  // Update the thumbnail image
-  const thumbnail = document.getElementById("thumbnail");
-  const imagePath = `./assets/${color.replace("#", "").toLowerCase()}.png`;
-  thumbnail.src = imagePath;
+    // Add active border style
+    selectedSpan.className = `w-6 h-6 rounded-full border-2 border-[${color}] flex justify-center items-center`;
 
-  // set in dataset
-  const colorKey = Object.keys(
-    data.colors.find((colorObj) => Object.values(colorObj)[0] === color)
-  )[0];
-  cartItem["color"] = colorKey;
-  cartItem["image"] = imagePath;
+    // Add inner circle
+    const innerDiv = document.createElement("div");
+    innerDiv.className = `w-4 h-4 rounded-full bg-[${color}]`;
+    selectedSpan.appendChild(innerDiv);
 
-  activeButton = button;
-}
+    // Update the thumbnail image
+    const imagePath = `./assets/${color.replace("#", "").toLowerCase()}.png`;
+    thumbnail.src = imagePath;
 
-// Dynamically create buttons based on the dataset
-function createButtons() {
-  data.colors.forEach((colorObj, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.id = `button${index + 1}`;
-    const color = Object.values(colorObj)[0];
-    button.dataset.color = color;
-    button.className = `w-4 h-4 rounded-full bg-[${color}] border-none outline-none flex justify-center items-center`;
-
-    button.addEventListener("click", () => handleClick(button));
-
-    colorButtonsContainer.appendChild(button);
+    // Update the cartItem object
+    const colorKey = Object.keys(
+      data.colors.find((colorObj) => Object.values(colorObj)[0] === color)
+    )[0];
+    cartItem["color"] = colorKey;
+    cartItem["image"] = imagePath;
   });
-}
+});
 
-// Initialize buttons dynamically
-createButtons();
-
-// Make the first button active by default
+// Automatically select the first color on page load
 document.addEventListener("DOMContentLoaded", () => {
-  const firstButton = colorButtonsContainer.querySelector("button");
-  if (firstButton) {
-    handleClick(firstButton);
+  if (colorButtons.length > 0) {
+    colorButtons[0].checked = true;
+    colorButtons[0].dispatchEvent(new Event("change"));
   }
 });
 
@@ -173,7 +159,17 @@ const countDisplay = document.getElementById("count");
 
 // Update the count display
 function updateCount() {
-  countDisplay.textContent = cartItem.count;
+  countDisplay.value = cartItem.count;
+}
+
+function handleProductCount() {
+  const count = parseInt(countDisplay.value, 10);
+  if (count > 0) {
+    cartItem.count = count;
+    cartItem["price"] = cartItem["price"] * count;
+  } else {
+    console.log("Cannot decrement count below 1");
+  }
 }
 
 // Handle decrement button click

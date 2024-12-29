@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product details</title>
+    <meta
+      name="description"
+      content="Classy Modern Smart Watch with multiple band colors, adjustable wrist sizes, and a user-friendly design. Perfect for every occasion."
+    />
+    <meta
+      name="keywords"
+      content="smart watch, modern watch, stylish watch, classy watch"
+    />
+    <meta name="author" content="Tanvin" />
+    <title>Classy Modern Smart Watch | Product Details</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -16,112 +25,226 @@
   </head>
   <body class="h-full w-full container mx-auto p-0 roboto-regular m-0">
     <main class="container mx-auto p-5">
-      <div class="lg:grid grid-cols-12 gap-4 space-y-20 lg:space-y-0 relative">
+      <article
+        class="lg:grid grid-cols-12 gap-[60px] space-y-20 lg:space-y-0 relative"
+      >
+        <!-- Product Image -->
         <section class="col-span-6">
-          <img
-            id="thumbnail"
-            src=""
-            class="w-full h-full rounded"
-            alt="thumbnail"
-          />
+          <figure>
+            <img
+              id="thumbnail"
+              src=""
+              class="w-full h-full rounded"
+              alt="Classy Modern Smart Watch"
+            />
+          </figure>
         </section>
-        <!-- details -->
+
+        <!-- Product Details -->
         <section class="col-span-6 w-full h-full flex flex-col justify-center">
-          <h1 class="font-bold text-2xl sm:text-4xl text-[#364A63]">
-            Classy Modern Smart watch
+          <h1
+            class="font-bold text-2xl sm:text-[40px] leading-10 py-3 text-[#364A63]"
+          >
+            Classy Modern Smart Watch
           </h1>
-          <div class="flex items-center gap-1.5 mt-5">
-            <i class="fa-solid fa-star text-[#FFD200]"></i>
-            <i class="fa-solid fa-star text-[#FFD200]"></i>
-            <i class="fa-solid fa-star text-[#FFD200]"></i>
-            <i class="fa-regular fa-star-half-stroke text-[#FFD200]"></i>
-            <i class="fa-regular fa-star text-[#FFD200]"></i>
-            <span class="text-[#8091A7]">(2 Reviews)</span>
-          </div>
-
-          <div class="mt-8 space-y-5">
-            <div class="flex items-center gap-2">
-              <p
-                id="price"
-                class="text-[#8091A7] text-lg sm:text-xl line-through"
-              ></p>
-              <p
-                id="offer-price"
-                class="text-[#6576FF] font-bold text-xl sm:text-2xl"
-              ></p>
-            </div>
-
-            <p class="text-[#8091A7]">
-              I must explain to you how all this mistaken idea of denoun cing
-              ple praising pain was born and I will give you a complete account
-              of the system, and expound the actual teaching.
-            </p>
-
-            <div class="flex items-center gap-5">
-              <div>
-                <p class="text-[#8091A7] text-sm">Type</p>
-                <p class="text-[#364A63] font-bold text-base">Watch</p>
-              </div>
-              <div>
-                <p class="text-[#8091A7] text-sm">Model Number</p>
-                <p class="text-[#364A63] font-bold text-base">
-                  Forerunner 290XT
-                </p>
-              </div>
-            </div>
-
-            <div class="space-y-3">
-              <p class="text-lg text-[#364A63] font-bold">Band Color</p>
-              <div class="flex items-center gap-4 color-buttons"></div>
-            </div>
-
-            <div class="space-y-3">
-              <p class="text-lg text-[#364A63] font-bold">Wrist Size</p>
-              <div class="flex items-center gap-4 size-buttons flex-wrap"></div>
-            </div>
-
-            <div class="flex items-center gap-4 flex-wrap">
-              <!-- counter -->
-              <div class="inline-block">
-                <div
-                  class="flex items-center gap-x-4 border border-[#8091A7] rounded m-0 p-0"
-                >
-                  <button
-                    id="decrement"
-                    type="button"
-                    class="m-0 h-8 w-8 outline-none flex justify-center items-center rounded-l text-[#8091A7] text-lg border-r border-[#8091A7]"
-                  >
-                    -
-                  </button>
-                  <p id="count" class="text-[#364A63] text-lg">1</p>
-                  <button
-                    id="increment"
-                    type="button"
-                    class="m-0 h-8 w-8 outline-none flex justify-center items-center rounded-r text-[#8091A7] text-lg border-l border-[#8091A7]"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-
-              <!-- add to cart button -->
-              <button
-                id="add-to-cart-btn"
-                type="button"
-                class="outline-none flex justify-center items-center rounded bg-[#6576FF] text-white py-1.5 px-2.5 text-[13px]"
-              >
-                Add to Cart
-              </button>
-
-              <!-- favorite btn -->
+          <div class="flex items-center gap-2 p-1" aria-label="Rating">
+            <div class="flex items-center gap-[4.5px]">
+              <i class="fa-solid fa-star text-[#FFD200]" aria-hidden="true"></i>
+              <i class="fa-solid fa-star text-[#FFD200]" aria-hidden="true"></i>
+              <i class="fa-solid fa-star text-[#FFD200]" aria-hidden="true"></i>
               <i
-                class="fa-regular fa-heart text-[#6576FF] cursor-pointer rounded-full text-xl"
+                class="fa-regular fa-star-half-stroke text-[#FFD200]"
+                aria-hidden="true"
+              ></i>
+              <i
+                class="fa-regular fa-star text-[#FFD200]"
+                aria-hidden="true"
               ></i>
             </div>
+            <span class="text-[#8091A7]" aria-label="Review count"
+              >(2 Reviews)</span
+            >
+          </div>
+
+          <!-- Price -->
+          <div class="flex items-center gap-[5px] pt-5">
+            <span
+              id="price"
+              class="text-[#8091A7] text-lg sm:text-xl leading-[30px] line-through font-normal"
+            >
+              $299.99
+            </span>
+            <span
+              id="offer-price"
+              class="text-[#6576FF] font-bold text-xl sm:text-2xl leading-[30px]"
+            >
+              $199.99
+            </span>
+          </div>
+
+          <!-- Description -->
+          <p
+            class="text-[#8091A7] pt-5 pr-1 leading-[30px] text-[18px] font-normal"
+          >
+            This stylish modern smartwatch comes with multiple band color
+            options, adjustable wrist sizes, and advanced features. Perfect for
+            tech enthusiasts and fashion-conscious individuals alike.
+          </p>
+
+          <!-- Product Features -->
+          <dl class="flex items-center gap-[43px] pt-5 pr-1">
+            <div>
+              <dt class="text-[#8091A7] text-sm leading-[23.1px] font-normal">
+                Type
+              </dt>
+              <dd class="text-[#364A63] font-bold text-base leading-[23px]">
+                Smart Watch
+              </dd>
+            </div>
+            <div>
+              <dt class="text-[#8091A7] text-sm leading-[23.1px] font-normal">
+                Model Number
+              </dt>
+              <dd class="text-[#364A63] font-bold text-base leading-[23px]">
+                Forerunner 290XT
+              </dd>
+            </div>
+          </dl>
+
+          <!-- Band Color -->
+          <div class="space-y-[10px] pt-5">
+            <h3 class="text-lg leading-5 text-[#364A63] font-bold">
+              Band Color
+            </h3>
+            <ul
+              class="flex items-center gap-[19px] color-buttons"
+              role="radiogroup"
+              aria-label="Band Colors"
+            >
+              <li>
+                <input
+                  type="radio"
+                  id="color-purple"
+                  name="color"
+                  value="#816BFF"
+                  class="hidden"
+                />
+                <label
+                  for="color-purple"
+                  data-color="#816BFF"
+                  class="w-4 h-4 rounded-full bg-[#816BFF] border-none outline-none flex justify-center items-center cursor-pointer"
+                ></label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  id="color-cyan"
+                  name="color"
+                  value="#1FCEC9"
+                  class="hidden"
+                />
+                <label
+                  for="color-cyan"
+                  data-color="#1FCEC9"
+                  class="w-4 h-4 rounded-full bg-[#1FCEC9] border-none outline-none flex justify-center items-center cursor-pointer"
+                ></label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  id="color-blue"
+                  name="color"
+                  value="#4B97D3"
+                  class="hidden"
+                />
+                <label
+                  for="color-blue"
+                  data-color="#4B97D3"
+                  class="w-4 h-4 rounded-full bg-[#4B97D3] border-none outline-none flex justify-center items-center cursor-pointer"
+                ></label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  id="color-black"
+                  name="color"
+                  value="#3B4747"
+                  class="hidden"
+                />
+                <label
+                  for="color-black"
+                  data-color="#3B4747"
+                  class="w-4 h-4 rounded-full bg-[#3B4747] border-none outline-none flex justify-center items-center cursor-pointer"
+                ></label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Wrist Size -->
+          <div class="space-y-[10px] pt-5">
+            <h3 class="text-lg text-[#364A63] font-bold">Wrist Size</h3>
+            <div
+              class="flex items-center gap-3 size-buttons flex-wrap"
+              aria-label="Wrist Sizes"
+            ></div>
+          </div>
+
+          <!-- Purchase Options -->
+          <div class="flex items-center gap-3 flex-wrap pt-5 mt-3">
+            <!-- Quantity Counter -->
+            <div class="inline-block">
+              <div
+                class="flex items-center gap-x-4 border border-[#8091A7] rounded m-0 p-0 h-[36px] w-[130px]"
+                aria-label="Quantity Selector"
+              >
+                <button
+                  id="decrement"
+                  type="button"
+                  class="m-0 h-[36px] w-[35px] outline-none flex justify-center items-center rounded-l text-[#8091A7] text-lg border-r border-[#8091A7]"
+                  aria-label="Decrease Quantity"
+                >
+                  -
+                </button>
+                <input
+                  id="count"
+                  type="number"
+                  class="text-[#364A63] text-lg w-[30px] h-full py-[3px] outline-none"
+                  value="1"
+                  min="1"
+                  onchange="handleProductCount()"
+                />
+                <button
+                  id="increment"
+                  type="button"
+                  class="m-0 h-[36px] w-[35px] outline-none flex justify-center items-center rounded-r text-[#8091A7] text-lg border-l border-[#8091A7]"
+                  aria-label="Increase Quantity"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button
+              id="add-to-cart-btn"
+              type="button"
+              class="outline-none flex justify-center items-center rounded-[3px] bg-[#6576FF] text-white py-2 px-[18px] text-[13px] leading-[10px] tracking-[0.26px] h-[36px] w-[105px]"
+              aria-label="Add to Cart"
+            >
+              Add to Cart
+            </button>
+
+            <!-- Favorite Button -->
+            <button aria-label="Add to Favorites">
+              <i
+                class="fa-regular fa-heart text-[#6576FF] cursor-pointer rounded-full text-[20px]"
+                aria-hidden="true"
+              ></i>
+            </button>
           </div>
         </section>
-        <div id="checkout-btn-container"></div>
-      </div>
+      </article>
+      <div id="checkout-btn-container"></div>
     </main>
     <script src="app.js"></script>
   </body>
